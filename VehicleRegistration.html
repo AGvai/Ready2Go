@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Registration</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <meta charset="ISO-8859-1">
+</head>
+<body>
+    <div class="container">
+        <h1>Please Register a Vehicle</h1>
+        
+        <div class="form" id="vehicleRegistration">
+            <label for="vehicleReg">Vehicle Registration:</label>
+            <input class="input-field" type="text" id="vehicleReg">
+        </div>
+        
+        <div class="form" id="vehicleBrand">
+            <label for="brand">Vehicle Brand:</label>
+            <input class="input-field" type="text" id="brand">
+        </div>
+        
+        <div class="form" id="vehicleModel">
+            <label for="model">Vehicle Model:</label>
+            <input class="input-field" type="text" id="model">
+        </div>
+        
+        <div class="form" id="seatCapacity">
+            <label for="seats">Seat Capacity:</label>
+            <input class="input-field" type="number" id="seats">
+        </div>
+        
+        <div class="form">
+            <label for="carType">Car Type:</label>
+            <select id="carType">
+                <option value="Economy">Economy</option>
+                <option value="Premium">Premium</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+        </div>
+        
+        <div class="form">
+            <label for="carAvailability">Availability:</label>
+            <select id="availability">
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+        </div>
+    	
+    	<div class="form">
+       	 	<button class="calculate-button" onclick="saveVehicle()">Submit</button>
+        	<button class="clear-button" onclick="clearForm()">Clear Form</button>
+        	<button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+    	</div>
+    	
+    	<div class="form">
+    	    <label for="vehicleDropdown">Select a Vehicle:</label>
+    	    <select id="vehicleDropdown"></select>
+    	</div>
+    </div>
+    <script src="RateCalculator.js"></script>
+</body>
+</html>

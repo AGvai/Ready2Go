@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate Calculator</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Rental Calculator</h1>
+        
+        <div class="form">
+            <label for="carType">Car Type:</label>
+            <select id="carType" onchange="toggleForms()">
+                <option value="Economy">Economy</option>
+                <option value="Premium">Premium</option>
+                <option value="Luxury">Luxury</option>
+            </select>
+            
+            <label for="mileage">Mileage (miles):</label>
+            <input class="input-field" type="number" id="mileage" step="0.1" min="0">
+            
+          <div id="economyForm" class="entry-form"> 
+            <label for="economyRate">Economy Base Rate:</label>
+            <input class="input-field" type="number" id="economyRate" step="0.01">
+            
+            <label for="economyAdditonalRate">Economy Additional Rate:</label>
+            <input class="input-field" type="number" id="economyAdditonalRate" step="0.01">
+          </div>
+          
+          <div id="premiumForm" class="entry-form"> 
+            <label for="premiumRate">Premium Base Rate:</label>
+            <input class="input-field" type="number" id="premiumRate" step="0.01">
+            
+            <label for="premiumAdditonalRate">Premium Additional Rate:</label>
+            <input class="input-field" type="number" id="premiumAdditonalRate" step="0.01">
+          </div>
+            
+          <div id="luxuryForm" class="entry-form">  
+            <label for="luxuryRate">Luxury Base Rate:</label>
+            <input class="input-field" type="number" id="luxuryRate" step="0.01">
+            
+            <label for="luxuryAdditonalRate">Luxury Additional Rate:</label>
+            <input class="input-field" type="number" id="luxuryAdditonalRate" step="0.01">
+          </div>
+           
+            <button class="calculate-button" onclick="calculateRate()">Calculate</button>
+            <button class="clear-button" onclick="clearForm()">Clear Form</button>
+            <button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+        </div>
+        
+        <div class="result">
+            <h2>Rental Rate:</h2>
+            <div id="result">Rental Rate: £0.00</div>
+        </div>
+    </div>
+    
+    <script src="RateCalculator.js"></script>
+    <script>
+		toggleForms();
+	</script>
+</body>
+</html>
