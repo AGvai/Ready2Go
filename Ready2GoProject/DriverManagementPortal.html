@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Driver Management Portal</title>
+		
+	</head>
+			
+	<body>
+		<h1> Driver Management Portal</h1>
+		<h3>Please enter your details: </h3>
+		
+		<form="driverForm" action="/submit" method="post">
+		
+		<label for="name">Enter Driver's Name:  </label>
+		<input type="text" id="name" name="name" placeholder="Enter Driver Name" required title="Name is Required"> <br> <br>
+		<label for="phoneno">Enter Contact Number:  </label>
+		<input type="text" id="phoneno" name="phoneno" placeholder="Enter Contact Number" required title="Contact Number is Required"> <br> <br>
+		<label for="licenseNo">Enter Driver's License Number:  </label>
+		<input type="text" id="licenseNo" name="licenseNo" placeholder="Enter License Number" required title="License Number is Required"> <br> <br>
+		
+		<button type="submit" id="submitDriver"> Submit </button>
+		<button type="reset"> Reset </button>
+		
+		</form> 
+		
+		<script src="js/DriverInput.js"></script>
+	</body>
+	
+	
+	
+</html>
