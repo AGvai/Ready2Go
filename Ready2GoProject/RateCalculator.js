@@ -148,7 +148,10 @@ function saveDriver(){
 	};
 	
 		drivers.push(driver);		
-		updateDriverList();			
+		updateDriverList();	
+		
+		localStorage.setItem('drivers', JSON.stringify(drivers));
+				
 		form.reset();
 		console.log(drivers);
 }
@@ -167,12 +170,19 @@ function updateDriverList(){
       <button onclick="modifyDriver(${index})">Modify</button>
       <button onclick="toggleAvailability(${index})">${driver.available ? "Mark Unavailable" : "Mark Available"}</button>
       ${vehicleDropdown}
+      <button onclick="deleteDriver(${index})">Delete</button>
     `;
     driverList.appendChild(list);
   });
 }
 
-
+function getDriversFromLocalStorage() {
+  const savedDrivers = localStorage.getItem('drivers');
+  if (savedDrivers) {
+    drivers = JSON.parse(savedDrivers);
+    updateDriverList();
+  }
+}
 
 function generateVehicleDropdown(driver) {
     const availableVehicles = vehiclesArray.filter(vehicle => vehicle.availability === "Available");
@@ -211,8 +221,19 @@ function modifyDriver(index) {
     driver.name = newName;
     driver.phoneno = newPhone;
     driver.licenseno = newLicense;
+    updateLocalStorage();
     updateDriverList();
   }
+}
+
+function deleteDriver(index) {
+  drivers.splice(index, 1);
+  updateLocalStorage();
+  updateDriverList();
+}
+
+function updateLocalStorage() {
+  localStorage.setItem('drivers', JSON.stringify(drivers));
 }
 
 function toggleAvailability(index) {
