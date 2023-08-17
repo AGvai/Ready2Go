@@ -2,17 +2,19 @@ const form = document.getElementById("customerForm");
 const submitButton = document.getElementById("submitCustomerButton");
 const emailInput = document.getElementById("email");
 
+let customers = [];
+
 form.addEventListener("submit", function(event){
 	event.preventDefault();
-	
-	let customers = [];
 	
 		const name = document.getElementById("name").value;
 		const phoneno = document.getElementById("phoneno").value;
 		const address = document.getElementById("address").value;
 		const email = document.getElementById("email").value;
 		
-		validate_email();
+		if (!validate_email()){
+			return;
+		}
 	
 		const randomId = generateRandomId();
 	
@@ -26,15 +28,19 @@ form.addEventListener("submit", function(event){
 		}
 	
 		customers.push(customer);
+		
+		alert("Customer Added");
 	
 		form.reset();
 	
-		const newPassword = prompt("Please enter a password for your account:");
+		const newPassword = prompt("You have been assigned the login ID: " + randomId + "\nPlease enter a password for your account:");
         	if (newPassword !== null) {
             	customer.password = newPassword;
             	}
 	
 		console.log(customers);
+		
+//		updateCustomerDropdown();
 	}
 
 );
@@ -57,3 +63,14 @@ form.addEventListener("submit", function(event){
 	return valid;
 }
 
+/* function updateCustomerDropdown() {
+    const customerDropdown = document.getElementById("customerDropdown");
+    customerDropdown.innerHTML = "        ";
+
+    for (const customer of customers) {
+        const option = document.createElement("option");
+        option.value = JSON.stringify(customer);
+        option.textContent = `${customer.name} ${customer.id} (${customer.phoneno})`;
+        dropdown.appendChild(option);
+    }
+} */

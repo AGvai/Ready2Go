@@ -105,3 +105,27 @@ h1 {
 .home-button:hover {
   background-color: #0056b3; 
 }
+
+.custom-List li {
+	padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+
+.custom-List li:nth-child(odd) {
+    background-color: #FAA0A0; /* Light gray background for odd items */
+}
+
+.custom-List li:nth-child(even) {
+    background-color: #ADD8E6; /* Lighter gray background for even items */
+}
+
+.image-container1 {
+    width: 360px;
+    height: 150PX;
+    padding: 150px, 150px;
+	margin-left: 200px;
+    background-image: url("C:/Users/alexg/OneDrive/Documents/Jobs/TCS/UI/Screenshot 2023-08-17 132802.png");
+    background-size: contain; /* Adjust how the image covers the container */
+    background-position: center center; /* Adjust the image position */
+}

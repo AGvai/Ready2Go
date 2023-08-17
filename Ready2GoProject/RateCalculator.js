@@ -63,6 +63,16 @@ function clearForm() {
     document.getElementById("luxuryAdditonalRate").value = "";
     document.getElementById("result").textContent = "Rental Rate: $0.00";
 }
+
+function clearVehicle(){
+    document.getElementById("vehicleReg").value = "";
+    document.getElementById("brand").value = "";
+    document.getElementById("model").value = "";
+    document.getElementById("seats").value = "";
+    document.getElementById("carType").selectedIndex = 0;
+    document.getElementById("availability").selectedIndex = 0;
+}
+
 function toggleForms() {
     const carType = document.getElementById("carType").value;
     const economyForm = document.getElementById("economyForm");
@@ -115,3 +125,104 @@ function updateVehicleDropdown() {
         dropdown.appendChild(option);
     }
     }
+
+
+
+	const form = document.getElementById("driverForm");
+//	const submitButton = document.getElementById("submitDriver");
+	const dList = document.getElementById("driverList")
+	const driverList = document.getElementById("driverItems");
+	let drivers = [];  
+  
+function saveDriver(){
+		
+	const name = document.getElementById("name").value;
+	const phoneno = document.getElementById("phoneno").value;
+	const licenseNo = document.getElementById("licenseNo").value;
+	
+	const driver = {
+		name: name,
+		phoneno: phoneno,
+		licenseno: licenseNo,
+		available: true,
+	};
+	
+		drivers.push(driver);		
+		updateDriverList();			
+		form.reset();
+		console.log(drivers);
+}
+
+function updateDriverList(){
+	driverList.innerHTML = "";
+	drivers.forEach((driver, index) => {
+    const list = document.createElement("li");
+    const vehicleDropdown = generateVehicleDropdown(driver);
+    list.innerHTML = `
+      <strong>Name:</strong> ${driver.name} | 
+      <strong>Phone:</strong> ${driver.phoneno} | 
+      <strong>License No:</strong> ${driver.licenseno} | 
+      <strong>Available:</strong> ${driver.available ? "Yes" : "No"} |
+      <strong>Vehicle Availability:</strong> ${getVehicleAvailability(driver.vehicleReg)} 
+      <button onclick="modifyDriver(${index})">Modify</button>
+      <button onclick="toggleAvailability(${index})">${driver.available ? "Mark Unavailable" : "Mark Available"}</button>
+      ${vehicleDropdown}
+    `;
+    driverList.appendChild(list);
+  });
+}
+
+
+
+function generateVehicleDropdown(driver) {
+    const availableVehicles = vehiclesArray.filter(vehicle => vehicle.availability === "Available");
+    const dropdown = document.createElement("select");
+    dropdown.id = `vehicleDropdown_${driver.licenseno}`;
+    dropdown.innerHTML = `<option value="" selected disabled>Select Vehicle</option>`;
+    
+    availableVehicles.forEach(vehicle => {
+        const option = document.createElement("option");
+        option.value = vehicle.vehicleReg;
+        option.textContent = `${vehicle.brand} ${vehicle.model} (${vehicle.vehicleReg})`;
+        dropdown.appendChild(option);
+    });
+
+    dropdown.addEventListener("change", function () {
+        const selectedVehicleReg = this.value;
+        updateDriverVehicle(driver.licenseno, selectedVehicleReg);
+    });
+
+    return dropdown.outerHTML;
+}
+
+function updateDriverVehicle(licenseNo, vehicleReg) {
+    const driver = drivers.find(driver => driver.licenseno === licenseNo);
+    driver.vehicleReg = vehicleReg;
+
+}
+
+function modifyDriver(index) {
+  const driver = drivers[index];
+  const newName = prompt("Enter new name:", driver.name);
+  const newPhone = prompt("Enter new phone number:", driver.phoneno);
+  const newLicense = prompt("Enter new license number:", driver.licenseno);
+
+  if (newName && newPhone && newLicense) {
+    driver.name = newName;
+    driver.phoneno = newPhone;
+    driver.licenseno = newLicense;
+    updateDriverList();
+  }
+}
+
+function toggleAvailability(index) {
+  const driver = drivers[index];
+  driver.available = !driver.available;
+  updateDriverList();
+}
+
+function getVehicleAvailability(vehicleReg) {
+    const vehicle = vehiclesArray.find(vehicle => vehicle.vehicleReg === vehicleReg);
+    return vehicle ? vehicle.availability : "N/A";
+}
+

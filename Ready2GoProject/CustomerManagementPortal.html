@@ -2,29 +2,38 @@
 <html>
 	<head>
 		<title>Customer Management Portal</title>
-		
+		<link rel="stylesheet" type="text/css" href="StyleSheet.css">
 	</head>
 			
 	<body>
+		<div class="container">
+			<div class="image-container1"></div>
+			<h1> Customer Management Portal</h1>
+			<h3>Please enter your details: </h3>
 		
-		<h1> Customer Management Portal</h1>
-		<h3>Please enter your details: </h3>
-		
-		<form id="customerForm" action="/submit" method="post">
+			<form id="customerForm">
 			
-		<label for="name">Enter Name:  </label>
-		<input type="text" id="name" name="name" placeholder="Enter Name" required title="Name is Required"> <br> <br>
-		<label for="phoneno">Enter Contact Number:  </label>
-		<input type="text" id="phoneno" name="phoneno" placeholder="Enter Contact Number" required title="Name is Required"> <br> <br>
-		<label for="address">Enter Address:  </label>
-		<input type="text" id="address" name="Address" placeholder="Enter Address" required title="Address is Required"> <br> <br>
-		<label for="email">Enter Email Address:  </label>
-		<input type="text" id="email" name="email" placeholder="Enter Email Address">   <br> <br>
+			<label for="name">Enter Name:  </label>
+			<input type="text" id="name" name="name" placeholder="Enter Name" required title="Name is Required"> <br> <br>
+			<label for="phoneno">Enter Contact Number:  </label>
+			<input type="text" id="phoneno" name="phoneno" placeholder="Enter Contact Number" required title="Name is Required"> <br> <br>
+			<label for="address">Enter Address:  </label>
+			<input type="text" id="address" name="Address" placeholder="Enter Address" required title="Address is Required"> <br> <br>
+			<label for="email">Enter Email Address:  </label>
+			<input type="text" id="email" name="email" placeholder="Enter Email Address">   <br> <br> 
 		
-		<button type="submit" id = "submitCustomerButton">Submit </button>
-		<button type="reset"> Reset </button>
+			<div class="form">
+				<button class="calculate-button" type="submit" id="submitCustomerButton">Submit</button>
+				<button class="clear-button" type="reset"> Reset </button>
+        		<button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+    		</div>
 		
-		</form>
+		
+			</form>
+    		
+    		
+		</div>
+		
 		
 		
 		<script src="CustomerInput.js"></script>
