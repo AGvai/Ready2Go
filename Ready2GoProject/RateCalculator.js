@@ -111,7 +111,20 @@ function saveVehicle() {
     vehiclesArray.push(vehicle);
 
     updateVehicleDropdown();
+    updateVehicleStorage();
     console.log("Vehicle saved:", vehicle);
+}
+
+function getVehiclesFromLocalStorage() {
+  const savedVehicles = localStorage.getItem('vehiclesArray');
+  if (savedVehicles) {
+    vehiclesArray = JSON.parse(savedVehicles);
+    updateVehicleDropdown();
+  }
+}
+
+function updateVehicleStorage() {
+  localStorage.setItem('vehiclesArray', JSON.stringify(vehiclesArray));
 }
 
 function updateVehicleDropdown() {
@@ -124,7 +137,7 @@ function updateVehicleDropdown() {
         option.textContent = `${vehicle.brand} ${vehicle.model} (${vehicle.vehicleReg})`;
         dropdown.appendChild(option);
     }
-    }
+}
 
 
 
@@ -166,7 +179,6 @@ function updateDriverList(){
       <strong>Phone:</strong> ${driver.phoneno} | 
       <strong>License No:</strong> ${driver.licenseno} | 
       <strong>Available:</strong> ${driver.available ? "Yes" : "No"} |
-      <strong>Vehicle Availability:</strong> ${getVehicleAvailability(driver.vehicleReg)} 
       <button onclick="modifyDriver(${index})">Modify</button>
       <button onclick="toggleAvailability(${index})">${driver.available ? "Mark Unavailable" : "Mark Available"}</button>
       ${vehicleDropdown}
@@ -184,8 +196,15 @@ function getDriversFromLocalStorage() {
   }
 }
 
+function updateLocalStorage() {
+  localStorage.setItem('drivers', JSON.stringify(drivers));
+}
+
 function generateVehicleDropdown(driver) {
-    const availableVehicles = vehiclesArray.filter(vehicle => vehicle.availability === "Available");
+    const availableVehicles = vehiclesArray.filter(vehicle => vehicle.availability === "available");
+    if (availableVehicles.length === 0) {
+        return "<em>No Available Vehicles</em>";
+    }
     const dropdown = document.createElement("select");
     dropdown.id = `vehicleDropdown_${driver.licenseno}`;
     dropdown.innerHTML = `<option value="" selected disabled>Select Vehicle</option>`;
@@ -232,9 +251,6 @@ function deleteDriver(index) {
   updateDriverList();
 }
 
-function updateLocalStorage() {
-  localStorage.setItem('drivers', JSON.stringify(drivers));
-}
 
 function toggleAvailability(index) {
   const driver = drivers[index];
