@@ -3,65 +3,66 @@
 <head>
     <title>Vehicle Registration</title>
     <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta charset="ISO-8859-1">
 </head>
 <body>
     <div class="container">
-		<div class="image-container1"></div>
-
+        <a href="HomePage.html">
+        <div class="logo">
+            <img src="C:\Users\flynn\git\Ready2Go\Ready2Go\public\Logo.jpg" alt="Logo">
+        </div>
+        </a>
         <h1>Please Register a Vehicle</h1>
         
-        <div class="form" id="vehicleRegistration">
+        <div class="form-group" id="vehicleRegistration">
             <label for="vehicleReg">Vehicle Registration:</label>
-            <input class="input-field" type="text" id="vehicleReg">
+            <input class="input-field form-control" type="text" id="vehicleReg">
         </div>
         
-        <div class="form" id="vehicleBrand">
+        <div class="form-group" id="vehicleBrand">
             <label for="brand">Vehicle Brand:</label>
-            <input class="input-field" type="text" id="brand">
+            <input class="input-field form-control" type="text" id="brand">
         </div>
         
-        <div class="form" id="vehicleModel">
+        <div class="form-group" id="vehicleModel">
             <label for="model">Vehicle Model:</label>
-            <input class="input-field" type="text" id="model">
+            <input class="input-field form-control" type="text" id="model">
         </div>
         
-        <div class="form" id="seatCapacity">
+        <div class="form-group" id="seatCapacity">
             <label for="seats">Seat Capacity:</label>
-            <input class="input-field" type="number" id="seats">
+            <input class="input-field form-control" type="number" id="seats">
         </div>
         
-        <div class="form">
+        <div class="form-group">
             <label for="carType">Car Type:</label>
-            <select id="carType">
+            <select class="form-control" id="carType">
                 <option value="Economy">Economy</option>
                 <option value="Premium">Premium</option>
                 <option value="Luxury">Luxury</option>
             </select>
         </div>
         
-        <div class="form">
+        <div class="form-group">
             <label for="carAvailability">Availability:</label>
-            <select id="availability">
+            <select class="form-control" id="availability">
                 <option value="available">Available</option>
                 <option value="unavailable">Unavailable</option>
             </select>
         </div>
     	
-    	<div class="form">
-       	 	<button class="calculate-button" onclick="saveVehicle()">Submit</button>
-        	<button class="clear-button" onclick="clearVehicle()">Clear Form</button>
-        	<button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+    	<div class="form-group">
+       	 	<button class="calculate-button btn btn-primary" onclick="saveVehicle()">Submit</button>
+        	<button class="clear-button btn btn-danger" onclick="clearForm()">Clear Form</button>
+        	<button class="home-button btn btn-success" onclick="window.location.href = 'HomePage.html';">Home Page</button>
     	</div>
     	
-    	<div class="form">
+    	<div class="form-group">
     	    <label for="vehicleDropdown">Select a Vehicle:</label>
-    	    <select id="vehicleDropdown"></select>
+    	    <select class="form-control" id="vehicleDropdown"></select>
     	</div>
     </div>
     <script src="RateCalculator.js"></script>
-    <script>
-  		getVehiclesFromLocalStorage();
-	</script>
 </body>
 </html>

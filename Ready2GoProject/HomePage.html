@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Home Page</title>
-	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <meta charset="ISO-8859-1">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
-		<div class="image-container1"></div>
-		<h1>Welcome to the Management Portal</h1>
-	</div>
-	<div class="homePage">
-		<button class="home-button" onclick="window.location.href = 'RateManagementPortal.html';">Rate Management</button>
-		<button class="home-button" onclick="window.location.href = 'VehicleRegistration.html';">Vehicle Registration</button>
-		<button class="home-button" onclick="window.location.href = 'DriverManagementPortal.html';">Driver Management</button>
-		<button class="home-button" onclick="window.location.href = 'CustomerManagementPortal.html';">Customer Management</button>
-	</div>
+    <div class="container">
+        <div class="logo">
+            <img src="C:\Users\flynn\git\Ready2Go\Ready2Go\public\Logo.jpg" alt="Logo">
+        </div>
+        <h1>Welcome to the Management Portal</h1>
+    </div>
+    <div class="container homePage">
+        <button class="btn btn-primary home-button" onclick="window.location.href = 'RateManagementPortal.html';">Rate Management</button>
+        <button class="btn btn-primary home-button" onclick="window.location.href = 'VehicleRegistration.html';">Vehicle Registration</button>
+        <button class="btn btn-primary home-button" onclick="window.location.href = 'DriveManagementPortal.html';">Driver Management</button>
+        <button class="btn btn-primary home-button" onclick="window.location.href = 'CustomerManagementPortal.html';">Customer Management</button>
+    </div>
 </body>
 </html>

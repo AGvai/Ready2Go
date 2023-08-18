@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rate Calculator</title>
     <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <meta charset="ISO-8859-1">
+    <title>Rate Management Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-		<div class="image-container1"></div>
-        <h1>Car Rental Calculator</h1>
+		<a href="HomePage.html">
+        <div class="logo">
+            <img src="C:\Users\flynn\git\Ready2Go\Ready2Go\public\Logo.jpg" alt="Logo">
+        </div>
+        </a>
+        <h1>Rate Management Portal</h1>
         
-        <div class="form">
+        <div class="form-group">
             <label for="carType">Car Type:</label>
-            <select id="carType" onchange="toggleForms()">
+            <select class="form-control" id="carType" onchange="toggleForms()">
                 <option value="Economy">Economy</option>
                 <option value="Premium">Premium</option>
                 <option value="Luxury">Luxury</option>
             </select>
-            
-            <label for="mileage">Mileage (miles):</label>
-            <input class="input-field" type="number" id="mileage" step="0.1" min="0">
-            
-          <div id="economyForm" class="entry-form"> 
+        </div>
+        
+        <div class="form-group" id="economyForm">
             <label for="economyRate">Economy Base Rate:</label>
-            <input class="input-field" type="number" id="economyRate" step="0.01">
+            <input class="input-field form-control" type="number" id="economyRate" step="0.01">
             
-            <label for="economyAdditonalRate">Economy Additional Rate:</label>
-            <input class="input-field" type="number" id="economyAdditonalRate" step="0.01">
-          </div>
-          
-          <div id="premiumForm" class="entry-form"> 
+            <label for="economyAdditionalRate">Economy Additional Rate:</label>
+            <input class="input-field form-control" type="number" id="economyAdditionalRate" step="0.01">
+        </div>
+        
+        <div class="form-group" id="premiumForm">
             <label for="premiumRate">Premium Base Rate:</label>
-            <input class="input-field" type="number" id="premiumRate" step="0.01">
+            <input class="input-field form-control" type="number" id="premiumRate" step="0.01">
             
-            <label for="premiumAdditonalRate">Premium Additional Rate:</label>
-            <input class="input-field" type="number" id="premiumAdditonalRate" step="0.01">
-          </div>
-            
-          <div id="luxuryForm" class="entry-form">  
+            <label for="premiumAdditionalRate">Premium Additional Rate:</label>
+            <input class="input-field form-control" type="number" id="premiumAdditionalRate" step="0.01">
+        </div>
+        
+        <div class="form-group" id="luxuryForm">
             <label for="luxuryRate">Luxury Base Rate:</label>
-            <input class="input-field" type="number" id="luxuryRate" step="0.01">
+            <input class="input-field form-control" type="number" id="luxuryRate" step="0.01">
             
-            <label for="luxuryAdditonalRate">Luxury Additional Rate:</label>
-            <input class="input-field" type="number" id="luxuryAdditonalRate" step="0.01">
-          </div>
-           
-            <button class="calculate-button" onclick="calculateRate()">Calculate</button>
-            <button class="clear-button" onclick="clearForm()">Clear Form</button>
-            <button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+            <label for="luxuryAdditionalRate">Luxury Additional Rate:</label>
+            <input class="input-field form-control" type="number" id="luxuryAdditionalRate" step="0.01">
+        </div>
+        
+        <div class="form-group">
+            <button class="calculate-button btn btn-primary" onclick="calculateRate()">Calculate</button>
+            <button class="clear-button btn btn-danger" onclick="clearForm()">Clear Form</button>
+            <button class="home-button btn btn-success" onclick="window.location.href = 'HomePage.html';">Home Page</button>
         </div>
         
         <div class="result">
             <h2>Rental Rate:</h2>
-            <div id="result">Rental Rate: £0.00</div>
+            <div id="result">Rental Rate: $0.00</div>
         </div>
     </div>
     
     <script src="RateCalculator.js"></script>
-    <script>
-		toggleForms();
-	</script>
 </body>
 </html>

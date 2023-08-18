@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Driver Management Portal</title>
-		<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-	</head>
-			
-	<body>
-		
-		
-		<div class="container">
-			<div class="image-container1"></div>
-			<h1> Driver Management Portal</h1>
-			<h3>Please enter your details: </h3>
-		
-			<form id="driverForm">
-		
-			<label for="name">Enter Driver's Name:  </label>
-			<input type="text" id="name" name="name" placeholder="Enter Driver Name" required title="Name is Required"> <br> <br>
-			<label for="phoneno">Enter Contact Number:  </label>
-			<input type="text" id="phoneno" name="phoneno" placeholder="Enter Contact Number" required title="Contact Number is Required"> <br> <br>
-			<label for="licenseNo">Enter Driver's License Number:  </label>
-			<input type="text" id="licenseNo" name="licenseNo" placeholder="Enter License Number" required title="License Number is Required"> <br> <br>
-		
-			<div class="form">
-       	 		<button class="calculate-button" onclick="saveDriver()">Submit</button>
-				<button class="clear-button" type="reset"> Reset </button>
-				<button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
-			</div>
-		
-			
-		
-			</form> 
-		
-		
-			<div class ="custom-List" id="driverList">
-  				<h3>Driver List:</h3>
-  				<ul id="driverItems"></ul>
-  				<br> <br> <br> 
-			</div>
-		</div>
-    	
-		<script src="RateCalculator.js">; </script>
-		<script>
-  			getDriversFromLocalStorage();
-  			getVehiclesFromLocalStorage();
-		</script>
-	</body>
-	
-	
-	
+<head>
+    <title>Driver Management Portal</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+      <a href="HomePage.html">
+        <div class="logo">
+            <img src="C:\Users\flynn\git\Ready2Go\Ready2Go\public\Logo.jpg" alt="Logo">
+        </div>
+        </a>
+        <div class="image-container1"></div>
+        <h1 class="heading">Driver Management Portal</h1>
+        <h3 class="sub-heading">Please enter your details:</h3>
+
+        <form id="driverForm">
+            <label for="name" class="form-label">Enter Driver's Name:</label>
+            <input type="text" id="name" name="name" class="input-field" placeholder="Enter Driver Name" required title="Name is Required"><br><br>
+
+            <label for="phoneno" class="form-label">Enter Contact Number:</label>
+            <input type="text" id="phoneno" name="phoneno" class="input-field" placeholder="Enter Contact Number" required title="Contact Number is Required"><br><br>
+
+            <label for="licenseNo" class="form-label">Enter Driver's License Number:</label>
+            <input type="text" id="licenseNo" name="licenseNo" class="input-field" placeholder="Enter License Number" required title="License Number is Required"><br><br>
+
+            <div class="form">
+                <button class="calculate-button" onclick="saveDriver()">Submit</button>
+                <button class="clear-button" type="reset">Reset</button>
+                <button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+            </div>
+        </form>
+
+        <div class="custom-list" id="driverList">
+            <h3>Driver List:</h3>
+            <ul id="driverItems"></ul>
+            <br><br><br>
+        </div>
+    </div>
+
+    <script src="RateCalculator.js"></script>
+    <script>
+        getDriversFromLocalStorage();
+        getVehiclesFromLocalStorage();
+    </script>
+</body>
 </html>

@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Customer Management Portal</title>
-		<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-	</head>
-			
-	<body>
+<head>
+    <title>Customer Management Portal</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 		<div class="container">
-			<div class="image-container1"></div>
-			<h1> Customer Management Portal</h1>
-			<h3>Please enter your details: </h3>
-		
-			<form id="customerForm">
-			
-			<label for="name">Enter Name:  </label>
-			<input type="text" id="name" name="name" placeholder="Enter Name" required title="Name is Required"> <br> <br>
-			<label for="phoneno">Enter Contact Number:  </label>
-			<input type="text" id="phoneno" name="phoneno" placeholder="Enter Contact Number" required title="Name is Required"> <br> <br>
-			<label for="address">Enter Address:  </label>
-			<input type="text" id="address" name="Address" placeholder="Enter Address" required title="Address is Required"> <br> <br>
-			<label for="email">Enter Email Address:  </label>
-			<input type="text" id="email" name="email" placeholder="Enter Email Address">   <br> <br> 
-		
-			<div class="form">
-				<button class="calculate-button" type="submit" id="submitCustomerButton">Submit</button>
-				<button class="clear-button" type="reset"> Reset </button>
-        		<button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
-    		</div>
-		
-		
-			</form>
-    		
-    		
-		</div>
-		
-		
-		
-		<script src="CustomerInput.js"></script>
-	</body>
-	
+        <a href="HomePage.html">
+        <div class="logo">
+            <img src="C:\Users\flynn\git\Ready2Go\Ready2Go\public\Logo.jpg" alt="Logo">
+        </div>
+        </a>
+        <div class="image-container1"></div>
+        <h1 class="heading">Customer Management Portal</h1>
+        <h3 class="sub-heading">Please enter your details:</h3>
+
+        <form id="customerForm">
+
+            <label for="name" class="form-label">Enter Name:</label>
+            <input type="text" id="name" name="name" class="input-field" placeholder="Enter Name" required title="Name is Required"><br><br>
+
+            <label for="phoneno" class="form-label">Enter Contact Number:</label>
+            <input type="text" id="phoneno" name="phoneno" class="input-field" placeholder="Enter Contact Number" required title="Contact Number is Required"><br><br>
+
+            <label for="address" class="form-label">Enter Address:</label>
+            <input type="text" id="address" name="Address" class="input-field" placeholder="Enter Address" required title="Address is Required"><br><br>
+
+            <label for="email" class="form-label">Enter Email Address:</label>
+            <input type="text" id="email" name="email" class="input-field" placeholder="Enter Email Address"><br><br>
+
+            <div class="form">
+                <button class="calculate-button" type="submit" id="submitCustomerButton">Submit</button>
+                <button class="clear-button" type="reset">Reset</button>
+                <button class="home-button" onclick="window.location.href = 'HomePage.html';">Home Page</button>
+            </div>
+        </form>
+    </div>
+    <script src="CustomerInput.js"></script>
+</body>
 </html>
